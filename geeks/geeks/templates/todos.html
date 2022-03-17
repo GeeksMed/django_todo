@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do Django</title>
+</head>
+<body>
+    <h1>To Do</h1>
+        <a href="/addToDo" type="button">Adicionar To Do</a>
+        <hr>
+        {% for todo in lista_to_do %}
+        <div class="to_do" contenteditable="">
+            <div class="assunto_form">Assunto: {{todo.assunto}}</div><br>
+            <div class="descricao_form">Descrição: {{todo.descricao}}</div><br>
+            <div class="prioridade_form">Prioridade: {{todo.prioridade}}</div><br>
+            <div class="data_limite_form">Data limite: {{todo.data_limite}}</div><br>
+        </div>
+        <a href="/atualizaToDo/{{todo.id}}"><button type="button">Atualizar</button></a>
+        <a href="/removeToDo/{{todo.id}}"><button type="button">Excluir</button></a>
+        <hr>
+        {% endfor %}
+</body>
+</html>

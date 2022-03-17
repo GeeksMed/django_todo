@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDos</title>
+</head>
+<body>
+    <form method="post">{% csrf_token %}
+        <label for="assunto">Assunto:</label>
+        <br>
+        <input id="assunto" type="text" name="assunto" value="{%if todo_atualizar%}{{todo_atualizar.assunto}}{%endif%}">
+        <br>
+        <label for="descricao">Descricao:</label>
+        <br>
+        <input id="descricao" type="text" name="descricao" value="{%if todo_atualizar%}{{todo_atualizar.descricao}}{%endif%}">
+        <br>
+        <label for="prioridade">Prioridade:</label>
+        <br>
+        <input id="prioridade" type="number" name="prioridade" value="{%if todo_atualizar%}{{todo_atualizar.prioridade}}{%endif%}">
+        <br>
+        <label for="data_limite">Data limite:</label>
+        <br>
+        <input id="data_limite" type="date" name="data_limite" min="2022-01-01" value="{%if todo_atualizar%}{{todo_atualizar.data_limite}}{%endif%}">
+        <br>
+        <input type="submit">
+        <input type="reset">
+        <a href="/"><button type="button">Voltar</button></a>
+    </form>
+</body>
+</html>
